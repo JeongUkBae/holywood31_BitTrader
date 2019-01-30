@@ -1,48 +1,45 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>그룹웨어</title>
-<link rel="stylesheet"
-	href="${context}/resources/css/style.css" />
-</head>
-<body>
-<div style="width: 100%">
+<jsp:include page="../home/top.jsp"/>
+<div class="grid-item" id="side_menu">
+	<h1><font style="font-size: 30px">사원 접속</font></h1>
+</div>
+<div>
 <section>
 <article>
 	<h1 id="title">회원 전용 시스템</h1>
-	<table id="login-outer-tab">
-		<tr>
-			<td colspan="5">
-				<form id="login-form" action="member.do">
-					<table id="login-inner-tab">
-						<tr>
-							<td><input id="uid" name="uid"
-								type="text" placeholder="사원번호" tabindex="1" />
-							</td>
-							<td rowspan="2">
-								<button id="login-btn">접속하기</button>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<span>사원번호를 입력해 주세요.</span>
-							</td>
-						</tr>
-					</table>
-				</form> 
-				<a id="admin-link" href="#"> 관리자 </a> 
-						<a id="join-link" onclick="join()" href="#"> 회원가입 </a>
-			</td>
-		</tr>
-	</table>
+<form id="form">
+  <h1>사원등록</h1>
+  <div class="rbox">
+  <b>사원번호 <input type="text" class="inputbox" name="empno" id="empno"></b>
+  </div>
+
+  <div class="rbox">
+  <b>이 름 <input type="text" name="ename" id="ename"/></b>
+  </div>
+
+  <div class="selbox">
+    <input type="submit" id="confirm_btn" value="등록"/>
+   </div>
+   <div class="selbox">
+    <input type="submit" id="cancel_btn" value="취소"/>
+  </div>
+    <input type="hidden" name="cmd" value="move" />
+    <input type="hidden" name="page" value="list" />
+</form>
 </article>
 </section>
 
 </div>
+<jsp:include page="../home/bottom.jsp"/>
 <script>
+$('#confirm_btn').click(function(){
+	var empno = $('#empno').val();
+	var name = $('#ename').val();
+	$('#form').attr('action','${ctx}/customer.do')
+	.submit();
+});
+
 /*location.assign('member.do?dest=join-form'); */
 /* 	window.onload = function(){
 		location.assign('member.do?dest=join-form');
@@ -57,5 +54,4 @@
 	// 'click', function(){} 하면 콜백함수가 호출된다. 
 
 </script>
-</body>
-</html>
+

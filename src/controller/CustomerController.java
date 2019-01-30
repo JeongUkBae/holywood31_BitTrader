@@ -19,8 +19,20 @@ public class CustomerController extends HttpServlet {
 	CustomerService service = CustomerServiceImpl.getInstance();
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String cmd = request.getParameter("cmd");
+		String dir = request.getServletPath().split("/")[1].replace(".do", "");
+		String page = request.getParameter("page");
+		System.out.println("cmd"+cmd);
+		System.out.println("dir"+dir);
+		System.out.println("page"+page);
+		switch(cmd) {
+		case "move":
+		request.getRequestDispatcher("/WEB-INF/view/"+dir+"/"+page+".jsp")
+		.forward(request, response);break;
+		}
+
+		
+		
 	}
 
 }

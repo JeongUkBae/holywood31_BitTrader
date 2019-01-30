@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%System.out.println("=> 관리자 메인.jsp로 입장"); %>
+dfdf
 </body>
 </html>

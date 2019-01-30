@@ -1,25 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<jsp:include page="../home/head.jsp"/>
-
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<jsp:include page="head.jsp"/>
+</head>
 <body>
 	<%
-		System.out.println(" => employee 메인 입장");
+		System.out.println(" => 홈 메인 입장");
 	%>
 <div class="grid-container">
     <div class="grid-item" id="item1">
-    	<jsp:include page="../home/header.jsp"/>	
+    	<jsp:include page="header.jsp"/>	
     </div>
     
     
     <div class="grid-item" id="item2">
     	<c:choose>
-			<c:when test="${compo eq 'register'}"> 
-				<jsp:include page="../home/pre-navi-bar.jsp"/>
+			<c:when test="${compo eq 'post'}"> 
+				<jsp:include page="post-navi-bar.jsp"/>
 			</c:when>
 			<c:otherwise>
-				<jsp:include page="../home/post-navi-bar.jsp"/>
+				<jsp:include page="pre-navi-bar.jsp"/>
 			</c:otherwise>
 		</c:choose>
     </div>
@@ -37,19 +37,18 @@
     
     <div class="grid-item" id="item5">
     	<c:choose>
-			<c:when test="${compo eq 'register'}"> 
-				<jsp:include page="register.jsp"/>
+			<c:when test="${compo eq 'pre'}"> 
+				<jsp:include page="../employee/register.jsp"/>
 			</c:when>
 			<c:otherwise>
-				<jsp:include page="access.jsp"/>
+				<jsp:include page="../employee/register.jsp"/>
 			</c:otherwise>
 		</c:choose>
-    	
     </div>
     
     
     <div class="grid-item" id="item6">
-    	<jsp:include page="../home/footer.jsp"/>
+    	<jsp:include page="footer.jsp"/>
     </div>
 </div>
 </body>

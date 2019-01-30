@@ -24,14 +24,20 @@ public class HomeController extends HttpServlet {
 							throws ServletException, IOException {
 		System.out.println("=====홈컨트롤 진입 ====");
 		HttpSession session = request.getSession();
-		session.setAttribute("context", request.getContextPath());
-		EmployeeDTO e = (EmployeeDTO)session.getAttribute("admin");
-		if(e==null) {
-			request.setAttribute("compo", "pre");
-		} else {
-			request.setAttribute("compo", "post");
-		}
+		session.setAttribute("ctx", request.getContextPath());
 		
+		session.setAttribute("css", session.getAttribute("ctx")+"/resources/css/");
+		session.setAttribute("js", session.getAttribute("ctx")+"/resources/js/");
+		//확인 
+		System.out.println("ctx:::"+request.getContextPath());
+		System.out.println("css:::"+session.getAttribute("ctx")+"/resources/css/");
+		System.out.println("js:::"+session.getAttribute("ctx")+"/resources/js/");
+		
+		if(session.getAttribute("employee")==null) {
+			request.setAttribute("compo", "register");
+		} else {
+			request.setAttribute("compo", "access");
+		}
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/home/main.jsp");
 		rd.forward(request, response);
 		/*

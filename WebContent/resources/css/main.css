@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+  .grid-container{
+    display: grid;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    grid-template-columns: auto;
+    grid-gap: 5px;
+    background-color: #f5f5f5;
+    padding: 5px;
+    text-align: center;
+
+  }
+  .grid-main-content{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 5px;
+    padding: 5px;
+  }
+  .grid-item{
+    background-color: #f5f5f5;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    text-align: center;
+    padding: 20px;
+    font-size: 15px;
+  }
