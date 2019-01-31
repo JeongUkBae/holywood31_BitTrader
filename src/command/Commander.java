@@ -15,6 +15,10 @@ public class Commander {
 			cmd = new MoveCommand(request,responset);
 			
 			break;
+		case REGISTER:
+			cmd = new MoveCommand(request,responset);
+			
+			break;
 		default :
 			
 			break;

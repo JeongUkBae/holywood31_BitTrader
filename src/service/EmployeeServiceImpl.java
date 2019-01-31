@@ -2,25 +2,30 @@ package service;
 
 import java.util.List;
 
+import dao.EmployeeDAO;
+import dao.EmployeeDAOImpl;
 import domain.EmployeeDTO;
+
+
 
 public class EmployeeServiceImpl implements EmployeeService{
 	
 	private static EmployeeServiceImpl instance = new EmployeeServiceImpl();
-	private EmployeeServiceImpl() {}
+	private EmployeeServiceImpl() {dao = EmployeeDAOImpl.getInstance();}
 	public static EmployeeServiceImpl getInstance() {return instance;}
-	
+	EmployeeDAO dao ;
+
 
 	@Override
 	public void registEmployee(EmployeeDTO emp) {
-		// TODO Auto-generated method stub
-				
+		System.out.println("---EMP serviceImpl---");
+			dao.insertEmployee(emp);				
 	}
 
 	@Override
 	public List<EmployeeDTO> bringAllEmployeeList() {
-		// TODO Auto-generated method stub
-		return null;
+				
+		return dao.selectAllEmployeeList();
 	}
 
 	@Override
@@ -42,9 +47,9 @@ public class EmployeeServiceImpl implements EmployeeService{
 	}
 
 	@Override
-	public boolean existsEmployee(String searchWord) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean existsEmployee(String employeeID,String name) {
+		
+		return dao.existsEmployee(employeeID,name);
 	}
 
 	@Override

@@ -24,7 +24,7 @@
    <div class="selbox">
     <input type="submit" id="cancel_btn" value="취소"/>
   </div>
-    <input type="hidden" name="cmd" value="move" />
+    <input type="hidden" name="cmd" value="access" />
     <input type="hidden" name="page" value="list" />
 </form>
 </article>

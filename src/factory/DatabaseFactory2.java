@@ -2,12 +2,12 @@ package factory;
 
 import pool.Constant;
 
-public class DatabaseFactory {
-	public static Database createDatabase(String vendor) {
-		Database database = null;
+public class DatabaseFactory2 {
+	public static Database2 createDatabase(String vendor) {
+		Database2 database = null;
 		switch(vendor) {
 		case "oracle": 
-				database = new Oracle(
+				database = new Oracle2(
 						Constant.ORACLE_DRIVER,
 						Constant.ORACLE_URL,
 						Constant.USERNAME,

@@ -9,7 +9,7 @@
  <form id="register_form">
   <h1>사원등록</h1>
   <div class="rbox">
-  <b>사원번호 <input type="text" class="inputbox" name="empno" id="empno"></b>
+   <b>매니저 <input type="text" name="emag" id="emag"/></b>
   </div>
 
   <div class="rbox">
@@ -17,35 +17,35 @@
   </div>
 
   <div class="rbox">
-   <b>매니저 <input type="text" name="emag" id="emag"/></b>
-  </div>
-
-  <div class="rbox">
   <b>생년월일 <input type="text" name="ebd" id="ebd"/></b>
   </div>
+    <div class="rbox">
+  <b>포토 <input type="text" name="epoto" id="epoto"/></b>
+  </div>
 
   <div class="rbox">
-    <b>상 세 <input type="text" name="notes" /> </b>   
+    <b>상 세 <input type="text" name="notes" id="notes"/> </b>   
   </div>
 
   <div class="selbox">
-    <input type="submit" id="confirm_btn" value="등록"/>
+    <input type="submit" id="confirm_btn"  value="등록"/>
    </div>
    <div class="selbox">
     <input type="submit" id="cancel_btn" value="취소"/>
   </div>
-	<input type="hidden" name="cmd" value="move" />
+	<input type="hidden" name="cmd" value="register" />
 	<input type="hidden" name="page" value="access" />
 </form>
 </div>
 <jsp:include page="../home/bottom.jsp"/>
     <script>
  		 $('#confirm_btn').click(function(){
-	  		var empno = $('#empno').val();
-	  		var ename = $('#ename').val();
-	  		var e_num = $('#e_num').val();
-	  		var emag = $('#emag').val();
-	  		var ebd = $('#ebd').val();
+ 			var emag = $('#emag').val();
+ 			var ename = $('#ename').val();
+ 			var ebd = $('#ebd').val();
+	  		var epoto = $('#epoto').val();
+	  		var notes = $('#notes').val();
+	  		
 	  		$('#register_form').attr('action','${ctx}/employee.do').submit;
  		
 		});

@@ -5,6 +5,14 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import enums.Props;
+
+/*employeeID, 
+manager,
+name, 
+birthDate, 
+photo,
+notes;*/
 public class Conntest {
 	public static void main(String[] args) {
 		Connection conn = null;
@@ -12,16 +20,16 @@ public class Conntest {
 		ResultSet rs = null;
 		
 		try { //DB에서 일나는 일들 
-			Class.forName("oracle.jdbc.OracleDriver");
-			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:59162:xe",
-					"oracle", "password");
+			Class.forName(Props.ORA_DRIVER.getValue());
+			conn = DriverManager.getConnection(Props.DB_URL.getValue(),
+					Props.DB_USER.getValue(), Props.DB_PASSWORD.getValue());
 			stmt = conn.createStatement();
-			rs = stmt.executeQuery("SELECT * FROM member");
-			String name = null;
+			rs = stmt.executeQuery("SELECT COUNT(*) AS COUNT FROM EMPLOYEES");
+			String count = "";
 			while(rs.next()) {
-				name = rs.getString("name");
+				count = rs.getString("COUNT");
 			}
-			System.out.println("회원이름은 :::"+name);
+			System.out.println("회원의 수  :::"+count);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
