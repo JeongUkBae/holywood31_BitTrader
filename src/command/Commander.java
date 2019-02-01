@@ -10,13 +10,15 @@ public class Commander {
 			HttpServletResponse responset) {
 		System.out.println("===== 3.커맨더 진입 =====");
 		Command cmd = null;
+		System.out.println("cmd::"+request.getParameter("cmd"));
 		switch(Action.valueOf(request.getParameter("cmd").toUpperCase())) {
 		case MOVE:
-			cmd = new MoveCommand(request,responset);
+			System.out.println("===== 3.커맨더 진입 > 스위치 MOVE 진입 =====");
+			cmd = new Command(request, responset);
 			
 			break;
 		case REGISTER:
-			cmd = new MoveCommand(request,responset);
+			cmd = new CreateCommand(request, responset);
 			
 			break;
 		default :

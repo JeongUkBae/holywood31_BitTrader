@@ -11,11 +11,9 @@ import factory.DatabaceFactory;
 
 public class EmployeeDAOImpl implements EmployeeDAO {
 	private static EmployeeDAOImpl instance = new EmployeeDAOImpl();
-	private EmployeeDAOImpl() {
-		
-				}
+	private EmployeeDAOImpl() {dao = EmployeeDAOImpl.getInstance();}
 	public static EmployeeDAOImpl getInstance() {return instance;}
-	
+	EmployeeDAO dao;
 
 	
 	@Override

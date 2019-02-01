@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <jsp:include page="../home/top.jsp"/>
-
+<link rel="stylesheet" 
+	href="${css}/employee/register.css" />
 <div class="grid-item" id="side_menu">
  	<h1><font style="font-size: 30px">사원 등록</font></h1>
 </div>
@@ -20,7 +21,7 @@
   <b>생년월일 <input type="text" name="ebd" id="ebd"/></b>
   </div>
     <div class="rbox">
-  <b>포토 <input type="text" name="epoto" id="epoto"/></b>
+  <b>포토 <input type="text" name="ephoto" id="ephoto"/></b>
   </div>
 
   <div class="rbox">
@@ -43,7 +44,7 @@
  			var emag = $('#emag').val();
  			var ename = $('#ename').val();
  			var ebd = $('#ebd').val();
-	  		var epoto = $('#epoto').val();
+	  		var ephoto = $('#ephoto').val();
 	  		var notes = $('#notes').val();
 	  		
 	  		$('#register_form').attr('action','${ctx}/employee.do').submit;
