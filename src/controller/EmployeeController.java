@@ -31,27 +31,8 @@ public class EmployeeController extends HttpServlet {
 		
 		System.out.println("===== 1.컨트롤러 진입 =====");
 		Receiver.init(request,response);
-		/*
-		 * employeeID, manager, name, birthDate, photo, notes;
-		 */	
-		switch (Action.valueOf(Receiver.cmd.getAction().toUpperCase())) {
-		case MOVE:
-			System.out.println("---케이스 MOVE---");
-			Carrier.forward(request, response);
-			break;
-		case REGISTER:
-			System.out.println("---케이스 REGISTER---");
-			Carrier.forward(request, response);
-			break;
-		case ACCESS:
-			System.out.println("---케이스 ACCESS---");
-		
-			Carrier.forward(request, response);
-			break;
-			
-		default:
-			break;
-		}
+		System.out.println("====2.컨트롤러 forward 직전====");
+		Carrier.forward(request, response);
 		
 	}
 

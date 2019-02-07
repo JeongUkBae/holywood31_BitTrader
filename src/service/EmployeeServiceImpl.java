@@ -47,9 +47,9 @@ public class EmployeeServiceImpl implements EmployeeService{
 	}
 
 	@Override
-	public boolean existsEmployee(String employeeID,String name) {
+	public boolean existsEmployee(EmployeeDTO emp) {
 		
-		return dao.existsEmployee(employeeID,name);
+		return dao.existsEmployee(emp);
 	}
 
 	@Override

@@ -16,7 +16,17 @@
 
 <jsp:include page="bottom.jsp"/>
 <script>
+	$('#cust_join').click(function(){
+		location.assign('customer.do?cmd=move&page=signup');
+	});
+	$('#cust_login').click(function(){
+		location.assign('customer.do?cmd=move&page=signin');
+	});
+
 	$('#emp_register').click(function(){
 		location.assign('employee.do?cmd=move&page=register');
+	});
+	$('#emp_access').click(function(){
+		location.assign('employee.do?cmd=move&page=access');
 	});
 </script>

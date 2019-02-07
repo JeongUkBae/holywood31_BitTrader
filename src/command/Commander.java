@@ -17,15 +17,21 @@ public class Commander {
 			cmd = new Command(request, responset);
 			
 			break;
-		case REGISTER:
+		case REGISTER: case SIGNUP :
 			cmd = new CreateCommand(request, responset);
 			
 			break;
+		case ACCESS: case SIGNIN:
+			cmd = new ExistCommand(request, responset);
+			
+			break;
+
 		default :
 			
 			break;
 		
 		}
+		System.out.println("커맨더내부 :"+Receiver.cmd.getView());
 		return cmd;
 	}
 }

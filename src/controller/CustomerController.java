@@ -1,12 +1,15 @@
 package controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import command.Carrier;
+import command.Receiver;
 import service.CustomerService;
 import service.CustomerServiceImpl;
 
@@ -18,20 +21,12 @@ public class CustomerController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	CustomerService service = CustomerServiceImpl.getInstance();
 	
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String cmd = request.getParameter("cmd");
-		String dir = request.getServletPath().split("/")[1].replace(".do", "");
-		String page = request.getParameter("page");
-		System.out.println("cmd"+cmd);
-		System.out.println("dir"+dir);
-		System.out.println("page"+page);
-		switch(cmd) {
-		case "move":
-		request.getRequestDispatcher("/WEB-INF/view/"+dir+"/"+page+".jsp")
-		.forward(request, response);break;
-		}
-
-		
+	protected void service(HttpServletRequest request, HttpServletResponse response) 
+							throws ServletException, IOException {
+		System.out.println("====커스텀 컨트롤 들어옴====");
+		Receiver.init(request, response);
+		System.out.println("====커스텀 포워드====");
+		Carrier.forward(request, response);
 		
 	}
 

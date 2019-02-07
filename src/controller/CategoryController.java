@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import command.Carrier;
+import command.Receiver;
 import service.CategoryService;
 import service.CategoryServiceImpl;
 
@@ -19,8 +21,9 @@ public class CategoryController extends HttpServlet {
     CategoryService service = CategoryServiceImpl.getInstance();   
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		System.out.println("====Category Controller 입장=====");
+		Receiver.init(request, response);
+		Carrier.forward(request, response);
 	}
 
 

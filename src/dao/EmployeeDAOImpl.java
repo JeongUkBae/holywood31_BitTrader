@@ -2,6 +2,9 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import domain.EmployeeDTO;
@@ -40,15 +43,29 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
-		
 	}
 
 	@Override
 	public List<EmployeeDTO> selectAllEmployeeList() {
-		// TODO Auto-generated method stub
-		return null;
+		List<EmployeeDTO> list = new ArrayList<EmployeeDTO>();
+		try {
+			String sql = "";
+			PreparedStatement ps =DatabaceFactory
+					.createDatabase(Vendor.ORACLE)
+					.getConnection()
+					.prepareStatement(sql);
+			ps.setString(1, "");
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				list.add(null);
+			}
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return list;
 	}
 
 	@Override
@@ -70,9 +87,22 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	}
 
 	@Override
-	public boolean existsEmployee(String employeeID,String name) {
-		
-		return false;
+	public boolean existsEmployee(EmployeeDTO emp) {
+		boolean ok = false;
+		try {
+			PreparedStatement ps = 
+					DatabaceFactory.createDatabase(Vendor.ORACLE)
+					.getConnection().prepareStatement(EmployeeSQL.ACCESS.toString());
+			ps.setString(1, emp.getEmployeeID());
+			ps.setString(2, emp.getName());
+			if(ps.executeQuery().next()) {ok = true;}
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("접근허용:"+ok);
+		return ok;
 	}
 
 	@Override

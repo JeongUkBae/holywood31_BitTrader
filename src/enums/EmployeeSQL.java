@@ -9,21 +9,26 @@ package enums;
 	notes;
 	*/
 public enum EmployeeSQL {
-	REGISTER;
+	REGISTER, ACCESS;
 	
 	@Override
 	public String toString() {
-		String query = "";
+		StringBuffer query = new StringBuffer();
 		switch (this) {
 		case REGISTER:
-			query = "INSERT INTO EMPLOYEES("
+			query.append("INSERT INTO EMPLOYEES("
 					+ "EMPLOYEE_ID, MANAGER, NAME, BIRTH_DATE, PHOTO, NOTES) VALUES("
-					+ " EMP_SEQ.NEXTVAL, ?, ?, ?, ?, ?)";
+					+ " EMP_SEQ.NEXTVAL, ?, ?, ?, ?, ?)");
 			break;
-
+		case ACCESS:
+			query.append("select *\n" + 
+					"from employees\n" + 
+					"where employee_id like ? and name like ?");
+			
+			break;
 		default:
 			break;
 		}
-		return query;
+		return query.toString();
 	}
 }

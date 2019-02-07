@@ -4,20 +4,20 @@
 <link rel="stylesheet" 
 	href="${css}/employee/register.css" />
 <div class="grid-item" id="side_menu">
-	<h1><font style="font-size: 30px">사원 접속</font></h1>
+	<h1><font style="font-size: 30px">회원 접속</font></h1>
 </div>
 <div>
 <section>
 <article>
 	<h1 id="title">회원 전용 시스템</h1>
 <form id="form">
-  <h1>사원등록</h1>
+  <h1>회원 로그인</h1>
   <div class="rbox">
-  <b>사원번호 <input type="text" class="inputbox" name="empno" id="empno" value="1020"></b>
+  <b>ID <input type="text" class="inputbox" name="customerid" id="customerid" value="lee1"></b>
   </div>
 
   <div class="rbox">
-  <b>이 름 <input type="text" name="ename" id="ename" value="홍길동"/></b>
+  <b>비밀번호 <input type="text" name="cpassword" id="cpassword" value="1111"/></b>
   </div>
 
   <div class="selbox">
@@ -26,9 +26,9 @@
    <div class="selbox">
     <input type="submit" id="cancel_btn" value="취소"/>
   </div>
-    <input type="hidden" name="cmd" value="access" />
-    <input type="hidden" name="dir" value="customer" />
-    <input type="hidden" name="page" value="list" />
+    <input type="hidden" name="cmd" value="signin" />
+    <input type="hidden" name="dir" value="category" />
+    <input type="hidden" name="page" value="main" />
 </form>
 </article>
 </section>
@@ -37,9 +37,9 @@
 <jsp:include page="../home/bottom.jsp"/>
 <script>
 $('#confirm_btn').click(function(){
-	var empno = $('#empno').val();
-	var name = $('#ename').val();
-	$('#form').attr('action','${ctx}/employee.do')
+	var customerid = $('#customerid').val();
+	var cpassword = $('#cpassword').val();
+	$('#form').attr('action','${ctx}/category.do')
 	.submit();
 });
 

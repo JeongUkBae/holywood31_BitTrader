@@ -12,7 +12,7 @@ public interface EmployeeService {
 	public List<EmployeeDTO> retrieveEmployees(String searchWord);
 	public EmployeeDTO retrieveEmployee(String searchWord);
 	public int countEmployees();
-	public boolean existsEmployee(String employeeID,String name);
+	public boolean existsEmployee(EmployeeDTO emp);
 	
 	public void modifyEmployee(EmployeeDTO emp);
 	public void removeEmployee(EmployeeDTO emp);

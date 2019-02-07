@@ -4,28 +4,34 @@
 <link rel="stylesheet" 
 	href="${css}/employee/register.css" />
 <div class="grid-item" id="side_menu">
- 	<h1><font style="font-size: 30px">사원 등록</font></h1>
+ 	<h1><font style="font-size: 30px">회원 등록</font></h1>
 </div>
  <div>
- <form id="register_form">
-  <h1>사원정보</h1>
+ <form id="signup_form">
+  <h1>회원정보</h1>
   <div class="rbox">
-   <b>매니저 <input type="text" name="emag" id="emag"/></b>
+   <b>아이디 <input type="text" name="customId" id="customId"/></b>
   </div>
 
   <div class="rbox">
-  <b>이 름 <input type="text" name="ename" id="ename"/></b>
+  <b>이 름 <input type="text" name="cname" id="cname"/></b>
   </div>
 
   <div class="rbox">
-  <b>생년월일 <input type="text" name="ebd" id="ebd"/></b>
+  <b>패스워드 <input type="text" name="cpassword" id="cpassword"/></b>
   </div>
     <div class="rbox">
-  <b>포토 <input type="text" name="ephoto" id="ephoto"/></b>
+  <b>주소 <input type="text" name="addr" id="addr"/></b>
   </div>
 
   <div class="rbox">
-    <b>상 세 <input type="text" name="notes" id="notes"/> </b>   
+    <b>도시 <input type="text" name="city" id="city"/> </b>   
+  </div>
+   <div class="rbox">
+    <b>우편번호 <input type="text" name="pcode" id="pcode"/> </b>   
+  </div>
+    <div class="rbox">
+    <b>주민번호 <input type="text" name="ssn" id="ssn"/> </b>   
   </div>
 
   <div class="selbox">
@@ -34,20 +40,21 @@
    <div class="selbox">
     <input type="submit" id="cancel_btn" value="취소"/>
   </div>
-	<input type="hidden" name="cmd" value="register" />
-	<input type="hidden" name="page" value="access" />
+	<input type="hidden" name="cmd" value="signup" />
+	<input type="hidden" name="page" value="signin" />
 </form>
 </div>
 <jsp:include page="../home/bottom.jsp"/>
     <script>
  		 $('#confirm_btn').click(function(){
- 			var emag = $('#emag').val();
- 			var ename = $('#ename').val();
- 			var ebd = $('#ebd').val();
-	  		var ephoto = $('#ephoto').val();
-	  		var notes = $('#notes').val();
-	  		
-	  		$('#register_form').attr('action','${ctx}/employee.do').submit;
+ 			var customId = $('#customId').val();
+ 			var cname = $('#cname').val();
+ 			var cpassword = $('#cpassword').val();
+	  		var addr = $('#addr').val();
+	  		var city = $('#city').val();
+	  		var pcode = $('#pcode').val();
+	  		var ssn = $('#ssn').val();
+	  		$('#signup_form').attr('action','${ctx}/customer.do').submit;
  		
 		});
 	  		
