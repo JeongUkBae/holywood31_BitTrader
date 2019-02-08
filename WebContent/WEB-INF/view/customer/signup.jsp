@@ -9,37 +9,56 @@
  <div>
  <form id="signup_form">
   <h1>회원정보</h1>
-  <div class="rbox">
-   <b>아이디 <input type="text" name="customId" id="customId"/></b>
-  </div>
+  
+   	<div class="input-group input-group-lg">
+ 		 <span class="input-group-addon" id="sizing-addon1">ID</span>
+ 		 <input type="text" class="form-control" placeholder="ID" aria-describedby="sizing-addon1" 
+  				name="customId" id="customId"/>
+	</div>
+	<div class="input-group input-group-lg">
+ 		 <span class="input-group-addon" id="sizing-addon1">이름</span>
+ 		 <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon1" 
+  				name="cname" id="cname"/>
+	</div>
+	<div class="input-group input-group-lg">
+ 		 <span class="input-group-addon" id="sizing-addon1">비밀번호</span>
+ 		 <input type="text" class="form-control" placeholder="Password" aria-describedby="sizing-addon1" 
+  				name="cpassword" id="cpassword"/>
+	</div>
 
-  <div class="rbox">
-  <b>이 름 <input type="text" name="cname" id="cname"/></b>
-  </div>
+	<div class="input-group input-group-lg">
+ 		 <span class="input-group-addon" id="sizing-addon1">주민번호</span>
+ 		 <input type="text" class="form-control" placeholder="SSN" aria-describedby="sizing-addon1" 
+  				name="ssn" id="ssn"/>
+	</div>
 
-  <div class="rbox">
-  <b>패스워드 <input type="text" name="cpassword" id="cpassword"/></b>
-  </div>
-    <div class="rbox">
-  <b>주소 <input type="text" name="addr" id="addr"/></b>
-  </div>
-
-  <div class="rbox">
-    <b>도시 <input type="text" name="city" id="city"/> </b>   
-  </div>
-   <div class="rbox">
-    <b>우편번호 <input type="text" name="pcode" id="pcode"/> </b>   
-  </div>
-    <div class="rbox">
-    <b>주민번호 <input type="text" name="ssn" id="ssn"/> </b>   
-  </div>
-
-  <div class="selbox">
-    <input type="submit" id="confirm_btn"  value="등록"/>
+	<div class="input-group input-group-lg">
+ 		 <span class="input-group-addon" id="sizing-addon1">주소</span>
+ 		 <input type="text" class="form-control" placeholder="Address" aria-describedby="sizing-addon1" 
+  				name="addr" id="addr"/>
+	</div>
+	<div class="input-group input-group-lg">
+ 		 <span class="input-group-addon" id="sizing-addon1">도시</span>
+ 		 <input type="text" class="form-control" placeholder="city" aria-describedby="sizing-addon1" 
+  				name="city" id="city"/>
+	</div>
+	<div class="input-group input-group-lg">
+ 		 <span class="input-group-addon" id="sizing-addon1">우편번호</span>
+ 		 <input type="text" class="form-control" placeholder="pcode" aria-describedby="sizing-addon1" 
+  				name="pcode" id="pcode"/>
+	</div>
+  <div class="row">
+  <div class="col-lg-6">
+    <div class="input-group">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="submit" id="confirm_btn">등록</button>
+      </span>
+          <span class="input-group-btn">
+        <button class="btn btn-default" type="reset" id="cancel_btn">취소</button>
+      </span>
+    </div>
    </div>
-   <div class="selbox">
-    <input type="submit" id="cancel_btn" value="취소"/>
-  </div>
+</div>
 	<input type="hidden" name="cmd" value="signup" />
 	<input type="hidden" name="page" value="signin" />
 </form>

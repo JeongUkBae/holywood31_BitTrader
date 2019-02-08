@@ -3,6 +3,8 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import domain.CustomerDTO;
@@ -48,30 +50,105 @@ public class CustomerDAOImpl implements CustomerDAO {
 
 	@Override
 	public List<CustomerDTO> selectAllCustomersList() {
-		// TODO Auto-generated method stub
-		return null;
+		List<CustomerDTO> list =  new ArrayList<CustomerDTO>();
+		try {
+			String sql = "";
+		PreparedStatement stmt = DatabaceFactory
+			.createDatabase(Vendor.ORACLE)
+			.getConnection().prepareStatement(sql);
+			stmt.setString(1, "");
+			ResultSet rs = stmt.executeQuery();
+			
+			while(rs.next()) {
+				list.add(null);
+			}
+		
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return list;
 	}
 
 	@Override
 	public List<CustomerDTO> selectCustomers(String searchWord) {
-		// TODO Auto-generated method stub
-		return null;
+		List<CustomerDTO> list =  new ArrayList<CustomerDTO>();
+		
+		try {
+			String sql = "";
+			PreparedStatement stmt = DatabaceFactory
+									.createDatabase(Vendor.ORACLE)
+									.getConnection().prepareStatement(sql);
+									 stmt.setString(1, "");
+			ResultSet rs = stmt.executeQuery();
+			while(rs.next()) {
+					list.add(null);
+			}
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return list;
 	}
 
 	@Override
-	public CustomerDTO selectCustomer(String searchWord) {
-		// TODO Auto-generated method stub
-		return null;
+	public CustomerDTO selectCustomer(CustomerDTO cus) {
+		CustomerDTO dto = null;
+		
+		try {
+			
+			PreparedStatement stmt = DatabaceFactory.createDatabase(Vendor.ORACLE)
+			.getConnection().prepareStatement(CustomerSQL.SIGNIN.toString());
+			stmt.setString(1,cus.getCustomerID());
+			stmt.setString(2, cus.getPassword());
+			ResultSet rs = stmt.executeQuery();
+			while(rs.next()) {
+				dto = new CustomerDTO();
+				dto.setAddress(rs.getString("ADDRESS"));
+				dto.setCity(rs.getString("CITY"));
+				dto.setCustomerID(rs.getString("CUSTOMER_ID"));
+				dto.setCustomerName(rs.getString("CUSTOMER_NAME"));
+				dto.setPassword(rs.getString("PASSWORD"));
+				dto.setPostalcode(rs.getString("POSTALCODE"));
+				dto.setSsn(rs.getString("SSN"));
+			}
+		
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return dto;
 	}
 
 	@Override
 	public int countCustomer() {
-		// TODO Auto-generated method stub
+		int count = 0;
+		
+		try {
+			String sql = "";
+			PreparedStatement stmt = 
+					DatabaceFactory.createDatabase(Vendor.ORACLE)
+					.getConnection().prepareStatement(sql);
+			stmt.setString(1, "");
+			ResultSet rs = stmt.executeQuery();
+			while(rs.next()) {
+				
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		return 0;
 	}
 
 	@Override
-	public boolean existsCustomer(CustomerDTO cus) {
+	public boolean existsCustomerID(CustomerDTO cus) {
 		boolean ok = false;
 		try {
 		
@@ -99,14 +176,34 @@ public class CustomerDAOImpl implements CustomerDAO {
 
 	@Override
 	public void updateCustomer(CustomerDTO cus) {
-		// TODO Auto-generated method stub
 		
+		try {
+			String sql = "";
+			PreparedStatement stmt = 
+					DatabaceFactory.createDatabase(Vendor.ORACLE)
+					.getConnection().prepareStatement(sql);
+			stmt.setString(1, "");
+			stmt.executeUpdate();
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public void deleteCustomer(CustomerDTO cus) {
-		// TODO Auto-generated method stub
-		
+
+		String sql = "";
+		try {
+			PreparedStatement stmt = DatabaceFactory.createDatabase(Vendor.ORACLE)
+									.getConnection().prepareStatement(sql);
+			stmt.setString(1, "");
+			stmt.executeUpdate();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

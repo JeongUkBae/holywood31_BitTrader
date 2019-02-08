@@ -11,24 +11,33 @@
 <article>
 	<h1 id="title">회원 전용 시스템</h1>
 <form id="form">
-  <h1>회원 로그인</h1>
-  <div class="rbox">
-  <b>ID <input type="text" class="inputbox" name="customerid" id="customerid" value="lee1"></b>
-  </div>
+ 	<div class="input-group input-group-lg">
+ 		 <span class="input-group-addon" id="sizing-addon1">ID</span>
+ 		 <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon1" 
+  				name="customerid" id="customerid" value="lee1"/>
+	</div>
 
-  <div class="rbox">
-  <b>비밀번호 <input type="text" name="cpassword" id="cpassword" value="1111"/></b>
-  </div>
-
-  <div class="selbox">
-    <input type="submit" id="confirm_btn" value="접속"/>
+	<div class="input-group input-group-lg">
+ 		 <span class="input-group-addon" id="sizing-addon1">비밀번호</span>
+ 		 <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon1" 
+  				name="cpassword" id="cpassword" value="1111"/>
+	</div>
+  <h4>가입한 ID, 비밀번호를 입력하세요.</h4>
+  <div class="row">
+  <div class="col-lg-6">
+    <div class="input-group">
+      <span class="input-group-btn" >
+        <button class="btn btn-default" type="submit" id="confirm_btn">접속</button>
+        <button class="btn btn-default" type="reset" id="cancel_btn">취소</button>
+      </span>
+    </div>
    </div>
-   <div class="selbox">
-    <input type="submit" id="cancel_btn" value="취소"/>
-  </div>
+
     <input type="hidden" name="cmd" value="signin" />
     <input type="hidden" name="dir" value="category" />
     <input type="hidden" name="page" value="main" />
+     </div>
+     
 </form>
 </article>
 </section>
